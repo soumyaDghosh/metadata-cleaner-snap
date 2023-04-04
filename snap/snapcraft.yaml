@@ -10,13 +10,7 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 compression: lzo
 
-layout:
-  /usr/lib:
-    bind: $SNAP/usr/lib
-  /usr/share/locale:
-    bind: $SNAP/usr/share/locale
-  /usr/share/metadata-cleaner:
-    bind: $SNAP/usr/share/metadata-cleaner
+
 
 environment:
   # WORKAROUND: Add python modules in Snap to search path
