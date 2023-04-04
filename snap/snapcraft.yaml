@@ -67,7 +67,7 @@ parts:
       - python3-pip
     stage-packages:
       - media-types
-      - libpoppler123
+      - libpoppler118
       - poppler-data
     override-pull: |
       craftctl default
