@@ -74,7 +74,7 @@ parts:
       python3 -m pip install --target=$CRAFT_PART_INSTALL/snap/metadata-cleaner/current/usr/lib/python3/dist-packages mat2
     organize:
       snap/metadata-cleaner/current/usr: usr
-    parse-info: usr/share/metainfo/fr.romainvigier.MetadataCleaner.metainfo.xml
+    parse-info: [usr/share/metainfo/fr.romainvigier.MetadataCleaner.metainfo.xml]
   cleanup:
     after:  # Make this part run last; list all your other parts here
       - metadata-cleaner
