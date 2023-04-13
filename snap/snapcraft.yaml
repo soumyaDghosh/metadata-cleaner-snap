@@ -91,5 +91,5 @@ apps:
     environment:
       GTK_USE_PORTAL: '1'
     plugs:
-      - home
+      - mount-observe
     common-id: fr.romainvigier.MetadataCleaner
