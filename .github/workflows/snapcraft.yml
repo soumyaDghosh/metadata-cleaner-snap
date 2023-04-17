@@ -28,10 +28,10 @@ jobs:
         with:
           name: snap
           path: ${{ steps.snapcraft-build.outputs.snap }}
-      - name: Upload and release Metadata Cleaner Snap
-        uses: snapcore/action-publish@v1
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
-        with:
-          snap: ${{ steps.snapcraft-build.outputs.snap }}
-          release: ${{ startsWith(github.ref, 'refs/tags/') && 'candidate' || 'edge'}}
+#      - name: Upload and release Metadata Cleaner Snap
+#        uses: snapcore/action-publish@v1
+#        env:
+#          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.STORE_LOGIN }}
+#        with:
+#          snap: ${{ steps.snapcraft-build.outputs.snap }}
+#          release: ${{ startsWith(github.ref, 'refs/tags/') && 'candidate' || 'edge'}}
