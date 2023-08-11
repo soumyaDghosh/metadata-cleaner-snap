@@ -61,6 +61,7 @@ parts:
     stage-packages:
       - media-types
       - libpoppler118
+      - libimage-exiftool-perl
     prime:
       - usr/share/mime.types
       - usr/lib/$CRAFT_ARCH_TRIPLET/libpoppler.so.118
