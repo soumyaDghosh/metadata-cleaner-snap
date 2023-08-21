@@ -107,4 +107,5 @@ apps:
       - home
       - removable-media
       - mount-observe
+      - steam-support
     common-id: fr.romainvigier.MetadataCleaner
