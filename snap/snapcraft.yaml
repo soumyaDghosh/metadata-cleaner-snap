@@ -66,9 +66,10 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libpoppler.so.118
       - usr/lib/$CRAFT_ARCH_TRIPLET/libpoppler.so.118.0.0
       - usr/bin/exiftool
-      - usr/share/perl5/*
+      - usr/bin/lib/perl5/*
     organize:
       etc/mime.types: usr/share/mime.types
+      usr/share/perl5: usr/bin/lib/perl5
   cleanup:
     after:  # Make this part run last; list all your other parts here
       - metadata-cleaner
