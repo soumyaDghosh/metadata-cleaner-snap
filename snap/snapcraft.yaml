@@ -1,5 +1,5 @@
-name: metadata-cleaner # you probably want to 'snapcraft register <name>'
-base: core22 # the base snap is the execution environment for this snap
+name: metadata-cleaner 
+base: core22 
 adopt-info: metadata-cleaner
 license: GPL-3.0+
 architectures:
@@ -7,8 +7,13 @@ architectures:
   - build-on: arm64
   - build-on: armhf
 
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+website: https://github.com/soumyaDghosh/metadata-cleaner-snap
+source-code: https://gitlab.com/rmnvgr/metadata-cleaner
+issues: https://github.com/soumyaDghosh/metadata-cleaner-snap/issues
+contact: soumyadeepghosh2004@zohomail.in
+
+grade: stable 
+confinement: strict 
 compression: lzo
 
 parts:
@@ -61,6 +66,7 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libpoppler.so.118
       - usr/lib/$CRAFT_ARCH_TRIPLET/libpoppler.so.118.0.0
       - usr/bin/exiftool
+      - usr/share/perl5/*
     organize:
       etc/mime.types: usr/share/mime.types
   cleanup:
