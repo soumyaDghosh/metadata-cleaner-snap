@@ -20,6 +20,9 @@ parts:
   mat2:
     source: https://0xacab.org/jvoisin/mat2.git
     source-tag: '0.13.4'
+# ext:updatesnap
+#   version-format:
+#     ignore: true
     plugin: python
     prime:
       # WORKAROUND: Skip venv from python plugin
@@ -50,6 +53,7 @@ parts:
     plugin: meson
     source: https://gitlab.com/rmnvgr/metadata-cleaner.git
     source-tag: v2.5.3
+    source-depth: 1
     meson-parameters:
       - --prefix=/snap/metadata-cleaner/current/usr
     organize:
