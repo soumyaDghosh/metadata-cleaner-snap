@@ -95,6 +95,10 @@ plugs:
     interface: content
     target: ffmpeg-platform
     default-provider: ffmpeg-2204
+  shmem:
+    interface: shared-memory
+    private: true
+
 slots:
   metadata-cleaner:
     interface: dbus
