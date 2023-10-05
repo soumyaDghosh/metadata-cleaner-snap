@@ -73,22 +73,7 @@ parts:
       - usr/bin/lib/*
     organize:
       etc/mime.types: usr/share/mime.types
-      usr/share/perl5: usr/bin/lib
-  cleanup:
-    after:  # Make this part run last; list all your other parts here
-      - metadata-cleaner
-      - mat2
-      - deps
-    plugin: nil
-    build-snaps:  # List all content-snaps and base snaps you're using here
-      - gnome-42-2204
-      - gtk-common-themes
-      - core22
-    override-prime: |
-      set -eux
-      for snap in "core22" "gnome-42-2204" "gtk-common-themes"; do  # List all content-snaps and base snaps you're using here
-        cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
-      done
+      usr/share/perl5: usr/bin/lib  
 
 plugs:
   ffmpeg-2204:
