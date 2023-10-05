@@ -1,3 +1,56 @@
+diff --git a/application/data/fr.romainvigier.MetadataCleaner.desktop.in b/application/data/fr.romainvigier.MetadataCleaner.desktop.in
+index 9dd4eeb..060d341 100644
+--- a/application/data/fr.romainvigier.MetadataCleaner.desktop.in
++++ b/application/data/fr.romainvigier.MetadataCleaner.desktop.in
+@@ -5,7 +5,7 @@
+ Name=Metadata Cleaner
+ GenericName=Metadata Cleaner
+ Comment=Clean metadata from your files
+-Icon=fr.romainvigier.MetadataCleaner
++Icon=snap.metadata-cleaner.fr.romainvigier.MetadataCleaner
+ Exec=@bindir@/metadata-cleaner %F
+ Type=Application
+ DBusActivatable=true
+diff --git a/application/data/fr.romainvigier.MetadataCleaner.metainfo.xml b/application/data/fr.romainvigier.MetadataCleaner.metainfo.xml
+index 76f80a9..77dc434 100644
+--- a/application/data/fr.romainvigier.MetadataCleaner.metainfo.xml
++++ b/application/data/fr.romainvigier.MetadataCleaner.metainfo.xml
+@@ -5,6 +5,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
+ -->
+ <component type="desktop-application" xmlns:its="http://www.w3.org/2005/11/its">
+   <id>fr.romainvigier.MetadataCleaner</id>
++  <icon type="stock">snap.metadata-cleaner.fr.romainvigier.MetadataCleaner</icon>
+ 
+   <name>Metadata Cleaner</name>
+   <summary>View and clean metadata in files</summary>
+diff --git a/application/data/ui/MenuButton.ui b/application/data/ui/MenuButton.ui
+index 5c9de5f..ea7f7d6 100644
+--- a/application/data/ui/MenuButton.ui
++++ b/application/data/ui/MenuButton.ui
+@@ -16,11 +16,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
+       </item>
+     </section>
+     <section>
+-      <item>
+-        <attribute name="label" translatable="yes">_Help</attribute>
+-        <attribute name="action">app.help</attribute>
+-        <attribute name="target">/index</attribute>
+-      </item>
+       <item>
+         <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+         <attribute name="action">win.show-help-overlay</attribute>
+diff --git a/application/metadatacleaner/app.py b/application/metadatacleaner/app.py
+index 1b270d4..dfc1c3a 100644
+--- a/application/metadatacleaner/app.py
++++ b/application/metadatacleaner/app.py
+@@ -99,7 +99,6 @@ class MetadataCleaner(Adw.Application):
+         self.add_action(self.settings.create_action("lightweight-cleaning"))
+ 
+     def _setup_accels(self) -> None:
+-        self.set_accels_for_action("app.help::/index", ["F1"])
+         self.set_accels_for_action("app.new-window", ["<Control>n"])
+         self.set_accels_for_action("app.quit", ["<Control>q"])
+         self.set_accels_for_action("win.add-files", ["<Control>o"])
 diff --git a/application/metadatacleaner/modules/file.py b/application/metadatacleaner/modules/file.py
 index 6b3dfb1..66afe1b 100644
 --- a/application/metadatacleaner/modules/file.py
