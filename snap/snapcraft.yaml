@@ -34,17 +34,18 @@ parts:
       - -usr/bin/python3
       - -usr/bin/python3.10
       - -usr/bin/pip
-      - -usr/bin/pip3
-      - -usr/bin/pip3.10
+      - -usr/bin/pip3*
       - -usr/bin/wheel
-      - -usr/lib/python3.10/dist-packages/pip*
-      - -usr/lib/python3.10/dist-packages/pkg_resources
-      - -usr/lib/python3.10/dist-packages/setuptools*
+      - -usr/lib/python3/dist-packages/pip*
+      - -usr/lib/python3/dist-packages/pkg_resources
+      - -usr/lib/python3/dist-packages/setuptools*
+      - -usr/lib/python3/dist-packages/wheel*
       - -pyvenv.cfg
       - -lib
       - -lib64
       - -include
       - -share
+      - -man
     organize:
       bin: usr/bin
       lib/python3.10/site-packages: usr/lib/python3/dist-packages
@@ -97,7 +98,7 @@ apps:
     desktop: usr/share/applications/fr.romainvigier.MetadataCleaner.desktop
     extensions: [gnome]
     environment:
-      PYTHONPATH: ${SNAP}/usr/lib/python3/dist-packages
+      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
       GDK_DEBUG: portals
     plugs:
       - home
