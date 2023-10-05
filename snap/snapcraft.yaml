@@ -57,7 +57,7 @@ parts:
     override-pull: |
       craftctl default
       patch -p1 < $CRAFT_PROJECT_DIR/patches/metadata-cleaner.patch
-    override-prime: |
+    override-build: |
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui
       cp -r $CRAFT_PART_INSTALL/snap/$CRAFT_PROJECT_NAME/current/usr/share/icons $CRAFT_PART_INSTALL/meta/gui/
