@@ -1,5 +1,5 @@
 diff --git a/application/metadatacleaner/modules/file.py b/application/metadatacleaner/modules/file.py
-index 6b3dfb1..2cb142d 100644
+index 6b3dfb1..66afe1b 100644
 --- a/application/metadatacleaner/modules/file.py
 +++ b/application/metadatacleaner/modules/file.py
 @@ -160,6 +160,8 @@ class File(GObject.GObject):
@@ -7,7 +7,7 @@ index 6b3dfb1..2cb142d 100644
          self._set_state(FileState.CHECKING_METADATA)
          try:
 +            if 'SNAP' in os.environ:
-+                _parser.sandbox = False
++                self._parser.sandbox = False
              metadata = self._parser.get_meta()
          except Exception as e:
              self._check_metadata_error(e)
