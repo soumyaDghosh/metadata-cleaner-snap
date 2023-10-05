@@ -1,34 +1,26 @@
 diff --git a/application/metadatacleaner/modules/file.py b/application/metadatacleaner/modules/file.py
-index 6b3dfb1..e488bd8 100644
+index 6b3dfb1..4c55f5b 100644
 --- a/application/metadatacleaner/modules/file.py
 +++ b/application/metadatacleaner/modules/file.py
-@@ -151,6 +151,7 @@ class File(GObject.GObject):
+@@ -151,6 +151,8 @@ class File(GObject.GObject):
          """Set up the parser and check the metadata present in the file."""
          try:
              parser, mimetype = parser_factory.get_parser(self.path)
-+            parser.sandbox = False
++            if 'SNAP' in os.environ:
++                parser.sandbox = False
          except Exception as e:
              self._setup_parser_error(e)
          else:
 diff --git a/application/metadatacleaner/ui/filechooserdialog.py b/application/metadatacleaner/ui/filechooserdialog.py
-index 8be4e16..fef2c02 100644
+index 8be4e16..312d48c 100644
 --- a/application/metadatacleaner/ui/filechooserdialog.py
 +++ b/application/metadatacleaner/ui/filechooserdialog.py
-@@ -9,7 +9,7 @@ from gi.repository import Gtk
- from metadatacleaner.modules.filestore import SUPPORTED_FORMATS
- 
- 
--class FileChooserDialog(Gtk.FileChooserNative):
-+class FileChooserDialog(Gtk.FileDialog):
-     """File chooser dialog."""
- 
-     __gtype_name__ = "FileChooserDialog"
 @@ -22,7 +22,7 @@ class FileChooserDialog(Gtk.FileChooserNative):
      def _setup_file_filter(self) -> None:
          file_filter = Gtk.FileFilter()
          file_filter.set_name(_("All supported files"))
 -        for mimetype, extensions in SUPPORTED_FORMATS.items():
-+        for extensions in SUPPORTED_FORMATS.items():
++        for _, extensions in SUPPORTED_FORMATS.items():
              for extension in extensions:
                  file_filter.add_suffix(extension[1:])
          self.add_filter(file_filter)
