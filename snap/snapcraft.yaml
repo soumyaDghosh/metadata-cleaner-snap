@@ -4,8 +4,8 @@ adopt-info: metadata-cleaner
 license: GPL-3.0+
 architectures:
   - build-on: amd64
-  - build-on: arm64
-  - build-on: armhf
+    #- build-on: arm64
+    #- build-on: armhf
 
 website: https://github.com/soumyaDghosh/metadata-cleaner-snap
 source-code: https://gitlab.com/rmnvgr/metadata-cleaner
@@ -16,7 +16,7 @@ grade: stable
 confinement: strict 
 compression: lzo
 
-parts:
+parts:    
   mat2:
     source: https://0xacab.org/jvoisin/mat2.git
     source-tag: '0.13.4'
@@ -49,11 +49,13 @@ parts:
       bin: usr/bin
       lib/python3.10/site-packages: usr/lib/python3/dist-packages
   metadata-cleaner:
-    # See 'snapcraft plugins'
     plugin: meson
     source: https://gitlab.com/rmnvgr/metadata-cleaner.git
     source-tag: 'v2.5.4'
     source-depth: 1
+    override-pull: |
+      craftctl default
+      patch -p1 < $CRAFT_PROJECT_DIR/metadata-cleaner.patch
     meson-parameters:
       - --prefix=/snap/metadata-cleaner/current/usr
     organize:
