@@ -4,8 +4,8 @@ adopt-info: metadata-cleaner
 license: GPL-3.0+
 architectures:
   - build-on: amd64
-    #- build-on: arm64
-    #- build-on: armhf
+  - build-on: arm64
+  - build-on: armhf
 
 website: https://github.com/soumyaDghosh/metadata-cleaner-snap
 source-code: https://gitlab.com/rmnvgr/metadata-cleaner
@@ -55,7 +55,7 @@ parts:
     source-depth: 1
     override-pull: |
       craftctl default
-      patch -p1 < $CRAFT_PROJECT_DIR/metadata-cleaner.patch
+      patch -p1 < $CRAFT_PROJECT_DIR/patches/metadata-cleaner.patch
     meson-parameters:
       - --prefix=/snap/metadata-cleaner/current/usr
     organize:
