@@ -107,8 +107,4 @@ apps:
     environment:
       PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
       GDK_DEBUG: portals
-    plugs:
-      - home
-      - removable-media
-      - mount-observe
     common-id: fr.romainvigier.MetadataCleaner
