@@ -8,7 +8,7 @@ platforms:
   armhf:
 
 website: https://github.com/soumyaDghosh/metadata-cleaner-snap
-source-code: https://gitlab.com/rmnvgr/metadata-cleaner
+source-code: https://gitlab.com/metadatacleaner/metadatacleaner
 issues: https://github.com/soumyaDghosh/metadata-cleaner-snap/issues
 contact: soumyadeepghosh2004@zohomail.in
 
@@ -44,7 +44,7 @@ parts:
       lib/python3.12/site-packages: usr/lib/python3/dist-packages
   metadata-cleaner:
     plugin: meson
-    source: https://gitlab.com/rmnvgr/metadata-cleaner.git
+    source: https://gitlab.com/metadatacleaner/metadatacleaner.git
     source-tag: 'v4.0.0'
     source-depth: 1
     override-pull: |
