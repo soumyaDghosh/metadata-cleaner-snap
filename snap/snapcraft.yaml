@@ -66,7 +66,7 @@ parts:
     plugin: nil
     stage-packages:
       - media-types
-      - libpoppler118
+      - libpoppler134
       - libimage-exiftool-perl
     prime:
       - usr/share/mime.types
